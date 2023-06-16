@@ -1,0 +1,54 @@
+<html>
+{% load static %}
+<head>
+
+    <title>ADMIN HOME PAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gruppo&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>
+
+    .box1{
+        margin-left:600px;
+        margin-top:-600px;
+        background-color: #1b1e21;
+        height:600px;
+        width:550px;
+        box-shadow: 0px 10px 20px 5px #c8143f;
+
+    }
+
+    .img{
+        margin-left:200px;
+        height:600px;
+        width:400px;
+        margin-top:40px;
+
+
+    }
+</style>
+
+</head>
+<body>
+<div class="box">
+<img src="{% static 'f1.jpeg' %}" class="img">
+</div>
+<div class="box1">
+    <h1 style="font-family: 'Gruppo', sans-serif;padding-top:40px;padding-left:20px;color:#c8143f;font-size:70px;">sit & stay</h1>
+    <p style="font-family: 'Poppins', sans-serif;padding-left:20px;font-size:15px;color:white">Our lives happen around our furniture. Every day, our bed frames,<br> dining tables, dressers, and coffee tables support us,<br> often without thanks and appreciation</p>
+
+<a href="{% url 'addproduct' %}"><input type="button" value="ADD PRODUCT" style="margin-top:20px;font-family: 'Gruppo', sans-serif;color:white;margin-left:20px;width:150px;background:transparent;border:1px solid #c8143f"></a><br><br>
+<a href="{% url 'viewproduct' %}"><input type="button" value="VIEW PRODUCT" style="font-family: 'Gruppo', sans-serif;color:white;margin-left:20px;width:150px;background:transparent;border:1px solid #c8143f"></a><br><br>
+<a href="{% url 'alastview' %}"><input type="button" value="ADMIN VIEW" style="font-family: 'Gruppo', sans-serif;color:white;margin-left:20px;width:150px;background:transparent;border:1px solid #c8143f"></a><br><br>
+<a href="{% url 'alogout' %}"><input type="button" value="LOGOUT" style="font-family: 'Gruppo', sans-serif;color:white;margin-left:20px;width:150px;background:transparent;border:1px solid #c8143f"></a><br><br>
+    <h1 style="font-family: 'Mrs Saint Delafield', cursive;padding-top:20px;padding-left:140px;color:#c8143f">Bh@vYa L@Tha</h1>
+</div>
+</body>
+</html>

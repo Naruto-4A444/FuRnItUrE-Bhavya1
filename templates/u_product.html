@@ -1,0 +1,148 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="zxx">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <!-- Required meta tags    "" -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FurnitureStore</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static  'css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href=" {% static  'css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static  'css/owl.carousel.min.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static  'css/all.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static  'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static  'css/themify-icons.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static  'css/magnific-popup.css' %}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{% static  'css/slick.css' %}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        .box{
+            width:240px;
+            height:520px;
+            box-shadow:0px 10px 20px 6px;
+            margin-top:-130px;
+            border:1px solid #c8143f;
+        }
+        .h{
+            padding-left:20px;
+        }
+        #main1{
+            background-color:#1a1e23;
+            height:150px;
+            font-family: 'Poppins', sans-serif;
+
+
+        }
+        .copyright_part{
+            margin-top:-80px;
+        }
+        .messages{
+            padding-left:480px;
+            font-size:30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--::header part start::-->
+   <!--::header part start::-->
+ <div class="row " id="main1">
+     <h1 style="position:absolute;color:#c8143f;font-size:50px;padding-left:20px;margin-top:10px;">SIT & STAY<i class="ti-heart" aria-hidden="true" style="padding-left:10px;"></i></h1>
+     <h1 style="position:absolute;color:white;padding-top:75px;padding-left:20px;font-family: 'Cinzel', serif;">List of Product available in our Application.</h1>
+                </div>
+    <a href="{% url 'home' %}"><input type="button" value="Home" style="width:170px;height:40px;border:1px solid #c8143f;border-radius:0px;margin-left:100px;color:white;background:#1b1e21;margin-top:60px;"></a><br><br>
+
+
+    <section class="product_list section_padding">
+
+        {% block content %}
+        <div class="container">
+
+            <div class="row">
+                {% for data in products %}
+                     <form method="post" action="{%  url 'buyproduct' data.id %}">
+                       {% csrf_token %}
+                    <div class="col-md-4" >
+                        <div class="box">
+                        <img style="height:200px ; width:380px;" src="{{data.pimage.url}} " class="img-fluid">
+                                               <div class="h"> Product ID: <h6>{{ data.id }}</h6>
+                                                   Product Name :  <h6>{{data.pname}}</h6>
+                                                   Product Category :  <h6>{{data.pcat}}</h6>
+                                                   Product Quality :  <h6>{{data.pquality}}</h6>
+                                                   Product Description :  <h6>{{data.pdec}}</h6>
+                                                   Product Price : <h6>{{data.pcost}}</h6>
+                                                   <input type="submit" value="buynow" style="background-color:#c8143f;color:white;border:1px solid #1a1e23;">
+                                               </div>
+
+                    </div>
+                    </div>
+
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+  {% if messages %}
+        <ul class="messages">
+            {%  for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"
+                {% endif %}>
+                {{ message }}
+            </li>
+            {% endfor %}
+        <a href="{% url 'lastview' %}"><input type="button" value="viewhistory" style="margin-left: 155px;margin-top:10px;background:transparent;border-color:#345347;border-radius:15px;font-size:15px;"></a>
+        </ul>
+        {% endif %}
+
+    </section>
+    <!-- product_list part start-->
+
+
+    <!-- awesome_shop part start-->
+
+    <!-- product_list part start-->
+
+
+
+    <br>
+        <div class="copyright_part">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright_text">
+                        <center>    <P>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by bhavya
+</P>
+                            <p><i><b>By SAKA.Bh@vyaLatha</b></i></p></center>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+</body>
+
+</html>

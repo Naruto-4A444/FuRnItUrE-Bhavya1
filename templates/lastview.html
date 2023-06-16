@@ -1,0 +1,111 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="zxx">
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <!-- Required meta tags    "" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FurnitureStore</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static  'css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href=" {% static  'css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static  'css/owl.carousel.min.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static  'css/all.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static  'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static  'css/themify-icons.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static  'css/magnific-popup.css' %}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{% static  'css/slick.css' %}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+    <style>
+        .box{
+            width:240px;
+            height:400px;
+            box-shadow:0px 2px 4px 1px white;
+            margin-top:-120px;
+            border:1px solid #c8143f;
+            background-color:#464848;
+            color:white;
+            border-radius:10px;
+
+        }
+        .h{
+            padding-left:20px;
+            padding-top:18px;
+        }
+        .body{
+            background-color:#1a1e23;
+        }
+        #main1{
+            height:70px;
+        }
+
+    </style>
+</head>
+
+<body class="body">
+    <!--::header part start::-->
+   <!--::header part start::-->
+ <div class="row " id="main1">
+
+
+     <h1 style="padding-top:25px;padding-left:100px;font-family: 'Krona One', sans-serif;color:#c8143f">Th@NkS fOr PuRcHaSiNg</h1>
+                </div>
+    <div class="p"><p style="font-size:25px;padding-left:100px;padding-top:-20px;position:absolute;color:white;font-family: 'Pinyon Script', cursive;">Shop Again And We Will Provide More Collections With Best Quality For More Details Contact Us </p></div>
+    <div class="b" style="margin-top:50px;"><a href="{% url 'contact' %}"><input type="button" value="CONTACT" style="color:white;margin-left:100px;;background-color:transparent;border:1px solid #c8143f;width:170px;height:40px;border-radius: 0px;"></a></div>
+    <a href="{% url 'home' %}"><input type="button" value="Home" style="width:170px;height:40px;margin-top:15px;border:1px solid #c8143f;border-radius:0px;margin-left:100px;color:white;background:transparent"></a><br><br>
+
+
+    <section class="product_list section_padding">
+
+        {% block content %}
+        <div class="container">
+
+            <div class="row">
+                {% for data in view %}
+
+                       {% csrf_token %}
+                    <div class="col-md-3" >
+                        <div class="box" style="border-radius: 0px;">
+                            <div class="h">
+                         PURCHASE-ID:<h6>{{ data.id }}</h6>
+                    PURCHASE-NAME:<h6>{{ data.pname }}</h6>
+                    PURCHASE-COST:<h6>{{ data.pcost }}</h6>
+                    PURCHASE-CAT:<h6>{{ data.pcat }}</h6>
+                    PURCHASE-QUA:<h6>{{ data.pquality }}</h6>
+                    PURCHASE-DEC:<h6>{{ data.pdec }}</h6>
+                    CUSTOMER-ID:<h6>{{ data.cid_id }}</h6>
+                    PRODUCT-ID:<h6>{{ data.pid_id }}</h6>
+                            </div>
+                        </div><br><br><br><br><br><br>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+
+    </section>
+
+</body>
+
+</html>

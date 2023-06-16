@@ -1,0 +1,100 @@
+<html>
+{% load staticfiles %}
+<head>
+    <title>HOMEPAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Genos:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<style>
+    .box{
+        background-color:#1a1e23;
+        width:550px;
+        height:750px;
+    }
+    .container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.6;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  color:#c8143f;
+  font-size: 35px;
+    font-style: revert;
+    width:100%;
+    font-family: 'Vibes', cursive;
+}
+
+</style>
+
+</head>
+<body>
+<div class="row">
+            <div class="box">
+                <div class="col-sm-8">
+
+
+
+                <h1 style="font-family: 'Genos', sans-serif;color:white;font-size:80px;padding-top:50px;padding-left:40px;">SIT & STAY<i class="fa fa-heart-o" aria-hidden="true"></i></h1>
+
+                <p style="font-family: 'Vibes', cursive;color:#c8143f;font-size:30px;padding-left:40px">place where families together</p>
+                    <a href="{% url 'profile' %}"><input type="button" value="profile" style="width:150px;height:50px;border-radius:25px;background:transparent;border-color:#c8143f;color:white;font-size:15px;box-shadow:0px 3px 4px 3px #c8143f;margin-left: 40px;"></a><br><br>
+            <a href="{% url 'products' %}"><input type="button" value="products" style="width:150px;height:50px;border-radius:25px;background:transparent;border-color:#c8143f;color:white;font-size:15px;box-shadow:0px 3px 4px 3px #c8143f;margin-left: 40px;"></a><br><br>
+            <a href="{% url 'lastview' %}"><input type="button" value="phistory" style="width:150px;height:50px;border-radius:25px;background:transparent;border-color:#c8143f;color:white;font-size:15px;box-shadow:0px 3px 4px 3px  #c8143f;margin-left: 40px;"></a>
+
+
+
+</div>
+            </div>
+
+
+     <div class="col-sm-4" id="container">
+
+<div class="container">
+   <img src="{% static 'family.jpeg' %}" class="image" style="height:750px;width:843px;margin-left:-135px">
+  <div class="middle">
+    <div class="text">furniture makes family bringing together</div>
+  </div>
+</div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
